@@ -9,8 +9,9 @@ const path = require("path");
 let webContents = remote.getCurrentWebContents();
 let printers = webContents.getPrinters(); //list the printers
 console.log(printers);
-
-printers.map((item, index) => {
+let printerName=printers[0].name;
+let widthPage="300px";
+/* printers.map((item, index) => {
   //write in the screen the printers for choose
   document.getElementById("list_printers").innerHTML +=
     ' <input type="radio" id="printer_' +
@@ -22,7 +23,7 @@ printers.map((item, index) => {
     '">' +
     item.name +
     "</label><br>";
-});
+}); */
 
 
 const data = [
@@ -117,10 +118,9 @@ function date() {
 }
 
 function print() {
-  let printerName;
-  let widthPage;
+ 
 
-  var p = document.getElementsByName("printer");
+  /* var p = document.getElementsByName("printer");
   var w = document.getElementsByName("width");
 
   for (var i = 0, length = p.length; i < length; i++) {
@@ -138,7 +138,7 @@ function print() {
       break;
     }
   }
-
+ */
   console.log(printerName, widthPage);
 
   const options = {
@@ -170,3 +170,4 @@ function print() {
     alert("Select the printer and the width");
   }
 }
+print()
